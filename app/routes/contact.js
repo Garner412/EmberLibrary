@@ -8,13 +8,8 @@ export default Ember.Route.extend({
 
   actions: {
 
-    saveLibrary(newContact) {
-      newContact.save().then(() => this.transitionTo('contact'));
-    },
-
     willTransition() {
       this.controller.get('model').rollbackAttributes();
-    }
+    },
   }
-
 });
