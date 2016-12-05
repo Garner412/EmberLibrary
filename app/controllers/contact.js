@@ -12,8 +12,6 @@ export default Ember.Controller.extend({
       var email = this.get('emailAddress');
       var message = this.get('message');
 
-      alert('Sending your message in progress... ');
-
       var responseMessage = 'From: ' + email + ', Message: ' + message;
       this.set('responseMessage', responseMessage);
       this.set('emailAddress', '');
