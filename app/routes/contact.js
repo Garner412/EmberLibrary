@@ -8,8 +8,13 @@ export default Ember.Route.extend({
 
   actions: {
 
+    sendMessage(newContact) {
+      newContact.save().then(() => this.controller.set('responseMessage', true));
+    },
+
     willTransition() {
       this.controller.get('model').rollbackAttributes();
-    },
+      this.controller.set('responseMessage', false);
+    }
   }
 });
