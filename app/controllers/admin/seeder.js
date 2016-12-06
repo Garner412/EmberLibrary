@@ -83,10 +83,8 @@ export default Ember.Controller.extend({
     const libraries = this.get('libraries');
     const librariesCounter = libraries.get('length');
 
-    // Create a new array from ids
     const libraryIds = libraries.map(lib => lib.get('id'));
 
-    // Randomly pick one id from the libraryIds array and return the library
     const randomNumber = Faker.random.number(librariesCounter-1);
     const randomLibrary = libraries.findBy('id', libraryIds[randomNumber]);
 
