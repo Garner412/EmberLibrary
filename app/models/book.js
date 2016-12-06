@@ -5,8 +5,8 @@ export default DS.Model.extend({
   title: DS.attr('string'),
   releaseYear: DS.attr('date'),
 
-  author: DS.belongsTo('author', inverse: 'books', async: true),
-  library: DS.belongsTo('library', inverse: 'books', async: true),
+  author: DS.belongsTo('author', {inverse: 'books', async: true}),
+  library: DS.belongsTo('library', {inverse: 'books', async: true}),
 
   randomize(author, library) {
     this.set('title', this._booktitle());
@@ -26,7 +26,7 @@ export default DS.Model.extend({
   },
 
   _getRandomArbitrary(min, max) {
-    return Math.random()
+    return Math.random() * (max - min) + min;
   }
 
 });
